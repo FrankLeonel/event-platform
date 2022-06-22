@@ -1,10 +1,7 @@
-import Header from "./components/Header"
+import Event from "./pages/Event";
 
 function App() {
-
-  return (
-    <Header />
-  )
+  return <Event />;
 }
 
-export default App
+export default App;
