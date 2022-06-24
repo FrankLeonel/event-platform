@@ -79,7 +79,7 @@ const Subscribe = () => {
             <button
               type="submit"
               disabled={loading}
-              className="px-6 py-4 bg-green-500 rounded uppercase text-sm font-bold hover:bg-green-700 transition-colors disabled:opacity-50"
+              className="px-6 py-4 bg-green-500 rounded uppercase text-sm font-bold hover:bg-green-700 transition-colors disabled:opacity-100 disabled:cursor-not-allowed"
             >
               Garantir minha vaga
             </button>

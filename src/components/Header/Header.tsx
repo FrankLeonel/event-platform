@@ -1,6 +1,6 @@
+import useToggle from "../../hooks/useToogle";
 import BurguerIcon from "../BurguerIcon/BurguerIcon";
 import Drawer from "../Drawer";
-import useToggle from "../hooks/useToogle";
 import { Logo } from "../Logo/Logo";
 
 const Header = () => {
