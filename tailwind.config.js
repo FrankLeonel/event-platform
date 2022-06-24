@@ -1,10 +1,23 @@
 /** @type {import('tailwindcss').Config} */
+const defaultTheme = require("tailwindcss/defaultTheme");
+
 module.exports = {
   content: ["./src/**/*.tsx"],
   theme: {
     extend: {
+      backgroundImage: {
+        blur: "url(/src/assets/images/blur-background.png)",
+      },
       fontFamily: {
         sans: "Roboto, sans-serif",
+      },
+      screens: {
+        xs: "480px",
+        sm: "640px",
+        md: "768px",
+        lg: "1024px",
+        xl: "1280px",
+        "2xl": "1536px",
       },
       colors: {
         green: {
