@@ -61,7 +61,7 @@ const Video = () => {
   return (
     <div className="flex-1">
       <div className="bg-black flex justify-center">
-        <div className="w-full h-full max-w-[1100px] max-h-[60vh] aspect-video">
+        <div className="w-full h-full max-w-[480px] md:max-w-[1100px] max-h-[60vh] aspect-video">
           <Player>
             <Youtube videoId={data.lesson.videoId} />
             <DefaultUi />
@@ -69,8 +69,8 @@ const Video = () => {
         </div>
       </div>
 
-      <div className="p-8 max-w-[1100px] mx-auto">
-        <div className="flex items-start gap-16">
+      <div className="p-8 max-w-[360px] md:max-w-[1100px] mx-auto">
+        <div className="flex flex-col md:flex-row md:items-start gap-16">
           <div className="flex-1">
             <h1 className="text-2xl font-bold">{data.lesson.title}</h1>
             <p className="mt-4 text-gray-200 leading-relaxed">
@@ -85,7 +85,7 @@ const Video = () => {
               />
 
               <div className="leading-relaxed">
-                <strong className="text-2xl block">
+                <strong className="text-lg md:text-2xl block">
                   {data.lesson.teacher.name}
                 </strong>
                 <span className="font-normal text-gray-200 text-sm block">
@@ -107,29 +107,31 @@ const Video = () => {
             </Button>
           </div>
         </div>
-        <div className="gap-8 mt-20 grid grid-cols-2">
+        <div className="gap-8 mt-20 grid grid-cols-1 md:grid-cols-2">
           <a
             href=""
-            className="bg-gray-700 rounded overflow-hidden flex items-stretch gap-6 hover:bg-gray-600 transition-colors"
+            className="bg-gray-700 rounded overflow-hidden flex items-stretch gap-4 md:gap-6 hover:bg-gray-600 transition-colors"
           >
             <div className="bg-green-700 h-full p-6 flex items-center">
               <FileArrowDown size={40} />
             </div>
             <div className="flex flex-col gap-2 py-6 leading-relaxed">
-              <strong className="text-2xl">Material Complementar</strong>
-              <span className="text-sm text-gray-200">
+              <strong className="text-lg md:text-2xl">
+                Material Complementar
+              </strong>
+              <span className="text-xs md:text-sm text-gray-200">
                 Acesse o material complementar para acelerar o seu
                 desenvolvimento
               </span>
             </div>
             <div className="h-full p-6 flex items-center">
-              <CaretRight size={24} />
+              <CaretRight size={24} className="text-blue-500" />
             </div>
           </a>
 
           <a
             href=""
-            className="bg-gray-700 rounded overflow-hidden flex items-stretch gap-6 hover:bg-gray-600 transition-colors"
+            className="bg-gray-700 rounded overflow-hidden flex items-stretch gap-4 md:gap-6 hover:bg-gray-600 transition-colors"
           >
             <div className="bg-green-700 h-full p-6 flex items-center">
               <FileArrowDown size={40} />
@@ -142,7 +144,7 @@ const Video = () => {
               </span>
             </div>
             <div className="h-full p-6 flex items-center">
-              <CaretRight size={24} />
+              <CaretRight size={24} className="text-blue-500" />
             </div>
           </a>
         </div>
