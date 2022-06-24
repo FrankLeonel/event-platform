@@ -16,6 +16,7 @@ const Subscribe = () => {
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+  const [erro, setErro] = useState(false);
 
   const [createSubscriber, { loading }] = useMutation(
     CREATE_SUBSCRIBER_MUTATION
@@ -35,12 +36,12 @@ const Subscribe = () => {
   };
 
   return (
-    <div className="min-h-screen bg-blur bg-no-repeat bg-cover flex flex-col items-center">
-      <div className="w-full max-w-[1100px] flex items-center justify-between mt-20 mx-auto">
-        <div className="max-w-[640px] flex flex-col gap-6">
+    <div className="min-h-screen bg-blur bg-no-repeat bg-cover flex flex-col items-center md:px-6 lg:px-28">
+      <div className="w-full md:max-w-[812px] lg:max-w-[1100px] flex flex-col md:flex-row md:items-center md:justify-between mt-10 md:mt-20 lg:mx-auto">
+        <div className="md:max-w-[340px] lg:max-w-[640px] flex flex-col items-center md:items-start gap-6 text-center md:text-left px-6 md:px-0 mb-8 md:mb-0">
           <Logo />
 
-          <h1 className="text-[2.5rem] leading-tight font-normal">
+          <h1 className="text-3xl leading-tight font-normal">
             Construa uma{" "}
             <strong className="text-blue-500 font-semibold">
               aplicação completa
@@ -49,14 +50,14 @@ const Subscribe = () => {
             <strong className="text-blue-500 font-semibold ">React JS</strong>
           </h1>
 
-          <p className="text-gray-200 font-normal text-xs leading-relaxed">
+          <p className="text-gray-200 font-normal text-sm md:text-base leading-relaxed">
             Em apenas uma semana você vai dominar na prática uma das tecnologias
             mais utilizadas e com alta demanda para acessar as melhores
             oportunidades do mercado.
           </p>
         </div>
 
-        <div className="p-8 bg-gray-700 rounded border border-gray-500 gap-6 flex flex-col">
+        <div className="p-8 bg-gray-700 md:rounded border border-gray-500 gap-6 flex flex-col">
           <strong className="text-2xl">Inscreva-se gratuitamente</strong>
 
           <form
@@ -66,20 +67,24 @@ const Subscribe = () => {
             <input
               type="text"
               placeholder="Seu nome completo"
+              required
               onChange={(event) => setName(event.target.value)}
-              className="bg-gray-900 rounded px-5 h-14"
+              className="bg-gray-900 rounded px-5 h-14 hover:border hover:border-green-300 active:border active:border-green-300 focus:outline-none focus:ring-green-300  focus:border-green-300"
             />
 
             <input
               type="email"
               placeholder="Digite seu email"
+              required
+              name="email"
               onChange={(event) => setEmail(event.target.value)}
-              className="bg-gray-900 rounded px-5 h-14"
+              className="bg-gray-900 rounded px-5 h-14 hover:border hover:border-green-300 
+              active:border active:border-green-300 focus:outline-none focus:ring-green-300 focus:border-green-300"
             />
             <button
               type="submit"
               disabled={loading}
-              className="px-6 py-4 bg-green-500 rounded uppercase text-sm font-bold hover:bg-green-700 transition-colors disabled:opacity-100 disabled:cursor-not-allowed"
+              className="px-6 py-4 mt-4 bg-green-500 rounded uppercase text-sm font-bold hover:bg-green-700 transition-colors disabled:opacity-100 disabled:cursor-not-allowed"
             >
               Garantir minha vaga
             </button>
@@ -90,7 +95,7 @@ const Subscribe = () => {
       <img
         src="/src/assets/images/code-mockup.png"
         alt="code mockup"
-        className="mt-10"
+        className="mt-10 px-3 md:px-0"
       />
     </div>
   );
