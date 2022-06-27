@@ -3,6 +3,10 @@ import { useNavigate } from "react-router-dom";
 import { Logo } from "../components/Logo/Logo";
 import { useCreateSubscriberMutation } from "../graphql/generated";
 
+import PngBanner from "../assets/images/code-mockup.png";
+import WebpBanner from "../assets/images/code-mockup.webp";
+import Image from "../components/Image";
+
 const Subscribe = () => {
   const navigate = useNavigate();
 
@@ -82,11 +86,7 @@ const Subscribe = () => {
         </div>
       </div>
 
-      <img
-        src="/src/assets/images/code-mockup.png"
-        alt="code mockup"
-        className="mt-10 px-3 md:px-0"
-      />
+      <Image webp={WebpBanner} fallback={PngBanner} alt="Code Mockup" />
     </div>
   );
 };
