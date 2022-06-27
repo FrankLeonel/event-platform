@@ -1,3 +1,5 @@
+import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
 import { useGetLessonsQuery } from "../../graphql/generated";
 import Lesson from "../Lesson";
 
@@ -11,15 +13,23 @@ const Sidebar = () => {
       </span>
 
       <div className="flex flex-col gap-8">
-        {data?.lessons.map((lesson) => (
-          <Lesson
-            key={lesson.id}
-            title={lesson.title}
-            lessonSlug={lesson.slug}
-            availableAt={new Date(lesson.availableAt)}
-            type={lesson.lessonType}
-          />
-        ))}
+        {!data?.lessons.length
+          ? Array.from({ length: 7 }, (v, i) => (
+              <SkeletonTheme key={i} baseColor="#202020" highlightColor="#444">
+                <p>
+                  <Skeleton count={3} />
+                </p>
+              </SkeletonTheme>
+            ))
+          : data?.lessons.map((lesson) => (
+              <Lesson
+                key={lesson.id}
+                title={lesson.title}
+                lessonSlug={lesson.slug}
+                availableAt={new Date(lesson.availableAt)}
+                type={lesson.lessonType}
+              />
+            ))}
       </div>
     </aside>
   );

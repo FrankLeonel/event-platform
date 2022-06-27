@@ -1,15 +1,22 @@
-import { DefaultUi, Player, Youtube } from "@vime/react";
+import "@vime/core/themes/default.css";
+import {
+  DefaultUi,
+  Player,
+  Skeleton as SkeletonPlay,
+  Ui,
+  Youtube,
+} from "@vime/react";
 import {
   CaretRight,
   DiscordLogo,
   FileArrowDown,
   Lightning,
 } from "phosphor-react";
-import Button from "../Button";
-
-import "@vime/core/themes/default.css";
+import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
 import { useParams } from "react-router-dom";
 import { useGetLessonBySlugQuery } from "../../graphql/generated";
+import Button from "../Button";
 
 const Video = () => {
   const { slug: lessonSlug } = useParams<{ slug: string }>();
@@ -21,7 +28,11 @@ const Video = () => {
   if (!data || !data.lesson) {
     return (
       <div className="flex-1">
-        <p>Carregando...</p>
+        <SkeletonTheme baseColor="#202020" highlightColor="#444">
+          <p>
+            <Skeleton count={4} />
+          </p>
+        </SkeletonTheme>
       </div>
     );
   }
@@ -33,6 +44,9 @@ const Video = () => {
           <Player>
             <Youtube videoId={data.lesson.videoId} />
             <DefaultUi />
+            <Ui>
+              <SkeletonPlay effect="sheen" />
+            </Ui>
           </Player>
         </div>
       </div>
