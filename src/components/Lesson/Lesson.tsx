@@ -8,9 +8,16 @@ interface LessonProps {
   lessonSlug: string;
   availableAt: Date;
   type: "live" | "class";
+  onCloseSidebar: () => void;
 }
 
-const Lesson = ({ title, lessonSlug, availableAt, type }: LessonProps) => {
+const Lesson = ({
+  title,
+  lessonSlug,
+  availableAt,
+  type,
+  onCloseSidebar,
+}: LessonProps) => {
   const { slug } = useParams<{ slug: string }>();
 
   const isLessonAvailable = isPast(availableAt);
@@ -25,6 +32,7 @@ const Lesson = ({ title, lessonSlug, availableAt, type }: LessonProps) => {
   return (
     <Link
       to={isLessonAvailable ? `/event/lesson/${lessonSlug}` : ""}
+      onClick={onCloseSidebar}
       className={classNames("group", {
         "cursor-not-allowed": !isLessonAvailable,
       })}

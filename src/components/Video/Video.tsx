@@ -1,11 +1,5 @@
 import "@vime/core/themes/default.css";
-import {
-  DefaultUi,
-  Player,
-  Skeleton as SkeletonPlay,
-  Ui,
-  Youtube,
-} from "@vime/react";
+import { DefaultUi, Player, Youtube } from "@vime/react";
 import {
   CaretRight,
   DiscordLogo,
@@ -44,9 +38,6 @@ const Video = () => {
           <Player>
             <Youtube videoId={data.lesson.videoId} />
             <DefaultUi />
-            <Ui>
-              <SkeletonPlay effect="sheen" />
-            </Ui>
           </Player>
         </div>
       </div>
